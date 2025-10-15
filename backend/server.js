@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 import bcrypt from "bcryptjs";
 
 import authRouters from "./routes/auth.routes.js";
@@ -10,12 +11,11 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(express.json());
+// middlewares
+app.use(express.json()); // to parse the incoming requests with JSON payloads (from req.body)
+app.use(cookieParser());
 
-app.get("/", (req, res) => {
-  res.send("Testing home route..");
-});
-
+// routes
 app.use("/api/auth", authRouters);
 
 app.listen(PORT, () => {
