@@ -6,6 +6,7 @@ import connectToMongoose from "./db/connectToMongoose.js";
 
 import authRouters from "./routes/auth.routes.js";
 import messageRouters from "./routes/message.routes.js";
+import userRouters from "./routes/user.routes.js";
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use(cookieParser());
 // routes
 app.use("/api/auth", authRouters);
 app.use("/api/messages", messageRouters);
+app.use("/api/users", userRouters);
 
 app.listen(PORT, () => {
   console.log(`server listening on port ${PORT}`);
