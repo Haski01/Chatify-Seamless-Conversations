@@ -1,10 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
-import bcrypt from "bcryptjs";
+
+import connectToMongoose from "./db/connectToMongoose.js";
 
 import authRouters from "./routes/auth.routes.js";
-import connectToMongoose from "./db/connectToMongoose.js";
+import messageRouters from "./routes/message.routes.js";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(cookieParser());
 
 // routes
 app.use("/api/auth", authRouters);
+app.use("/api/messages", messageRouters);
 
 app.listen(PORT, () => {
   console.log(`server listening on port ${PORT}`);
