@@ -9,7 +9,7 @@ const SearchInput = () => {
         className="input input-bordered rounded-full"
       />
       <button type="submit" className="btn btn-circle bg-sky-500 text-white">
-        <IoSearchSharp />
+        <IoSearchSharp className="size-6 outline-none" />
       </button>
     </form>
   );
