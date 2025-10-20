@@ -41,7 +41,7 @@ export default useLogin;
 // input error handler for client side
 function handleInputError(username, password) {
   if (!username || !password) {
-    toast.error("Require all fileds");
+    toast.error("Require all fields");
     return false;
   }
 
