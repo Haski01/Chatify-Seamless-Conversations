@@ -15,6 +15,11 @@ const io = new Server(server, {
   },
 });
 
+// function to fetch socket id whom chat with (jisse chat karenge hum)
+export const getReceiverSocketId = (receiverId) => {
+  return userSocketMap[receiverId];
+};
+
 const userSocketMap = {}; //{userId: socketId}
 
 io.on("connection", (socket) => {
